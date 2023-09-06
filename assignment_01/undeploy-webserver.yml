@@ -1,0 +1,16 @@
+---
+- name: Demo playbook to test callback plugin - Remove
+  hosts: serverb
+  tasks:
+
+    - name: Stop and disable httpd service
+      service:
+        name: httpd
+        enabled: false
+        state: stopped
+
+    - name: Remove httpd package
+      dnf:
+        name: httpd
+        state: absent
+EOF
