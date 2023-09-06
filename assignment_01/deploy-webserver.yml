@@ -1,0 +1,28 @@
+---
+- name: Demo playbook to test callback plugin - Deployment
+  hosts: serverb
+  tasks:
+    - name: Install httpd package
+      dnf:
+        name: httpd
+        state: latest
+    
+    - name: Start and enable httpd service
+      service:
+        name: httpd
+        enabled: true
+        state: started
+
+    - name: Create a custom index.html file
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          "<h1>Hello World from SJSU-1</h1>"
+      when: "'serverOne' in group_names"
+
+    - name: Create a custom index.html file
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+        "<h1>Hello World from SJSU-2</h1>"
+      when: "'serverTwo' in group_names"
