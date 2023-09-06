@@ -3,26 +3,29 @@
   hosts: serverb
   tasks:
     - name: Install httpd package
+      hosts: webserver
       dnf:
         name: httpd
         state: latest
     
     - name: Start and enable httpd service
       service:
+      hosts: webserver
         name: httpd
         enabled: true
         state: started
 
     - name: Create a custom index.html file
+      hosts: "workerone"
       copy:
         dest: /var/www/html/index.html
         content: |
           "<h1>Hello World from SJSU-1</h1>"
-      when: "'serverOne' in group_names"
+      when: "'workerone' in group_names"
 
     - name: Create a custom index.html file
+      hosts: "workertwo"
       copy:
         dest: /var/www/html/index.html
-        content: |
-        "<h1>Hello World from SJSU-2</h1>"
-      when: "'serverTwo' in group_names"
+        content: "<h1>Hello World from SJSU-2</h1>"
+      when: "'workertwo' in group_names"
