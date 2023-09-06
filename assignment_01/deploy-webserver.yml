@@ -9,8 +9,8 @@
         state: latest
     
     - name: Start and enable httpd service
-      service:
       hosts: webserver
+      service:
         name: httpd
         enabled: true
         state: started
