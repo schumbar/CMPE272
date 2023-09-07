@@ -16,6 +16,8 @@ https://www.redhat.com/sysadmin/ansible-callback-plugins
 https://www.ssh.com/academy/ssh/copy-id#copy-the-key-to-a-server
 Huge help in figuring out the key stuff:
 https://www.youtube.com/watch?v=5Fnie9Z5H3U&ab_channel=AWSWithAtiq
+https://www.digitalocean.com/community/tutorials/how-to-use-variables-in-ansible-playbooks
+https://saturncloud.io/blog/how-to-install-ansible-to-run-under-python3-on-amazon-linux/
 
 
 

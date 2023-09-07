@@ -1,15 +1,13 @@
 ---
 - name: Demo playbook to test callback plugin - Deployment
-  hosts: serverb
+  hosts: all
   tasks:
     - name: Install httpd package
-      hosts: webserver
       dnf:
         name: httpd
         state: latest
     
     - name: Start and enable httpd service
-      hosts: webserver
       service:
         name: httpd
         enabled: true
