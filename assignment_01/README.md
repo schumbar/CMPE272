@@ -11,6 +11,10 @@ README.md: README for the assignment
 deploy_webserver.yml: ansible scripts to deploy the webserver and display the associated message.
 undeploy_webserver.yml: ansible scripts to undeploy the webserver.
 inventory.ini: Inventory file.
+SJSU-1.png: Screenshot of the hello world from SJSU-1 message.
+SJSU-2.png: Screenshot of the hello world from SJSU-2 message.
+undeploy.png: Screenshot of output after running the undeploy_webserver script.
+commands.md: List of commands that we ran.
 
 ##### References
 Please see below for the resources that we used to help us on this assignment:
