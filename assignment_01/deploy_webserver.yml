@@ -29,7 +29,7 @@
 
     - name: Copy Web Page
       copy:
-        content: "Hello World from SJSU-{{ ansible_hostname }}"
+        content: "Hello World from {{ ansible_hostname }}"
         dest: /var/www/html/index.html
       when: webserver_state == 'deployed'
 
