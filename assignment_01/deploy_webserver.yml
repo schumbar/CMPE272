@@ -1,0 +1,35 @@
+---
+- name: Setup Ansible Inventory
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Add VM2 to Inventory
+      add_host:
+        name: VM2
+        groups: webservers
+        ansible_host: 10.0.0.238
+        ansible_ssh_user: sajal
+
+    - name: Add VM3 to Inventory
+      add_host:
+        name: VM3
+        groups: webservers
+        ansible_host: 10.0.0.56
+        ansible_ssh_user: sajal
+
+- name: Deploy Webserver
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Apache Webserver
+      apt:
+        name: apache2
+        state: present
+      when: webserver_state == 'deployed'
+
+    - name: Copy Web Page
+      copy:
+        content: "Hello World from SJSU-{{ ansible_hostname }}"
+        dest: /var/www/html/index.html
+      when: webserver_state == 'deployed'
+

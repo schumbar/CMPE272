@@ -1,5 +1,0 @@
-# Here are variables related to the Tomcat installation
-http_port: 8080
-greeting_string: "Hello World from SJSU-"
-one_string: "1"
-two_string: "2"
