@@ -4,7 +4,7 @@ import requests
 import json
 import requests_oauthlib
 
-
+# Author: Shawn Chumbar
 class twitter_client():
     def __init__(self) -> None:
         env_vars = auth_info.AuthorizationInformation()
@@ -12,14 +12,11 @@ class twitter_client():
         consumer_secret = env_vars.consumer_secret
         access_token_key = env_vars.access_token
         access_token_secret = env_vars.access_token_secret
-
         auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token_key, access_token_secret)
         api = tweepy.API(auth)
         self.auth_api = requests_oauthlib.OAuth1(consumer_key, consumer_secret, access_token_key, access_token_secret)
-
         self.create_tweet_url = "https://api.twitter.com/2/tweets"
         self.delete_tweet_url = "https://api.twitter.com/2/tweets"
-
         return
     
     def create_headers(self):
