@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Tweet App</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="tweet_id">Tweet ID to delete:</label>
+        <input type="text" id="tweet_id" name="tweet_id">
+        <button type="submit" name="delete">Delete</button>
+        <span>{{ delete_message }}</span>
+    </form>
+    <br>
+    <form action="/" method="post">
+        <label for="tweet_content">Tweet Content:</label>
+        <input type="text" id="tweet_content" name="tweet_content">
+        <button type="submit" name="post">Post Tweet</button>
+        <span>{{ post_message }}</span>
+    </form>
+</body>
+</html>
