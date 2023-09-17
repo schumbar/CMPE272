@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import twitter_client
 
-# Author: Shawn Chumbar and Dhruval Shah
+# Author: Sajal Agarwal and Dhruval Shah
 
 app = Flask(__name__)
 

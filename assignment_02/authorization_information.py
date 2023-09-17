@@ -2,6 +2,8 @@ import tweepy
 import os
 from dotenv import load_dotenv, find_dotenv
 
+# Author: Shawn Chumbar
+
 load_dotenv(find_dotenv())
 
 class AuthorizationInformation:
