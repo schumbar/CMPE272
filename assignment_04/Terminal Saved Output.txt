@@ -1,0 +1,186 @@
+schumbar@Shawns-MacBook-Pro-2 server-application % clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+schumbar@Shawns-MacBook-Pro-2 server-application % sam build
+Starting Build use cache                                                                                                                                     
+Manifest is not changed for (HelloWorldFunction), running incremental build                                                                                  
+Building codeuri: /Users/schumbar/Desktop/Fall2023/CMPE272/CMPE272/assignment_04/server-application/hello_world runtime: python3.9 metadata: {} architecture:
+x86_64 functions: HelloWorldFunction                                                                                                                         
+ Running PythonPipBuilder:CopySource                                                                                                                         
+ Running PythonPipBuilder:CopySource                                                                                                                         
+
+Build Succeeded
+
+Built Artifacts  : .aws-sam/build
+Built Template   : .aws-sam/build/template.yaml
+
+Commands you can use next
+=========================
+[*] Validate SAM template: sam validate
+[*] Invoke Function: sam local invoke
+[*] Test Function in the Cloud: sam sync --stack-name {{stack-name}} --watch
+[*] Deploy: sam deploy --guided
+schumbar@Shawns-MacBook-Pro-2 server-application % sam deploy --guided
+
+Configuring SAM deploy
+======================
+
+	Looking for config file [samconfig.toml] :  Found
+	Reading default arguments  :  Success
+
+	Setting default arguments for 'sam deploy'
+	=========================================
+	Stack Name [server-application]: serverless-application
+	AWS Region [us-east-1]: 
+	#Shows you resources changes to be deployed and require a 'Y' to initiate deploy
+	Confirm changes before deploy [Y/n]: Y
+	#SAM needs permission to be able to create roles to connect to the resources in your template
+	Allow SAM CLI IAM role creation [Y/n]: Y
+	#Preserves the state of previously provisioned resources when an operation fails
+	Disable rollback [y/N]: N
+	HelloWorldFunction has no authentication. Is this okay? [y/N]: y
+	Save arguments to configuration file [Y/n]: 
+	SAM configuration file [samconfig.toml]:  
+	SAM configuration environment [default]: 
+
+	Looking for resources needed for deployment:
+
+	Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-1k9xo225701bz
+	A different default S3 bucket can be set in samconfig.toml and auto resolution of buckets turned off by setting resolve_s3=False
+
+	Saved arguments to config file
+	Running 'sam deploy' for future deployments will use the parameters saved above.
+	The above parameters can be changed by modifying samconfig.toml
+	Learn more about samconfig.toml syntax at 
+	https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+
+	Uploading to serverless-application/d13f59b1cb1b9352db3dbebbfffb0b2d  548840 / 548840  (100.00%)
+
+	Deploying with following values
+	===============================
+	Stack name                   : serverless-application
+	Region                       : us-east-1
+	Confirm changeset            : True
+	Disable rollback             : False
+	Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-1k9xo225701bz
+	Capabilities                 : ["CAPABILITY_IAM"]
+	Parameter overrides          : {}
+	Signing Profiles             : {}
+
+Initiating deployment
+=====================
+
+	Uploading to serverless-application/c7f7c47595eefbfb41c08ac999a57389.template  657 / 657  (100.00%)
+
+
+Waiting for changeset to be created..
+
+CloudFormation stack changeset
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Operation                              LogicalResourceId                      ResourceType                           Replacement                          
+---------------------------------------------------------------------------------------------------------------------------------------------------------
++ Add                                  HelloWorldFunctionHelloWorldPermissi   AWS::Lambda::Permission                N/A                                  
+                                       onProd                                                                                                             
++ Add                                  HelloWorldFunctionRole                 AWS::IAM::Role                         N/A                                  
++ Add                                  HelloWorldFunction                     AWS::Lambda::Function                  N/A                                  
++ Add                                  ServerlessRestApiDeployment47fc2d5f9   AWS::ApiGateway::Deployment            N/A                                  
+                                       d                                                                                                                  
++ Add                                  ServerlessRestApiProdStage             AWS::ApiGateway::Stage                 N/A                                  
++ Add                                  ServerlessRestApi                      AWS::ApiGateway::RestApi               N/A                                  
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Changeset created successfully. arn:aws:cloudformation:us-east-1:667551379431:changeSet/samcli-deploy1698991404/422c1a1b-e19e-4f31-a1a1-13faf7a86d23
+
+
+Previewing CloudFormation changeset before deployment
+======================================================
+Deploy this changeset? [y/N]: y
+
+2023-11-02 23:03:37 - Waiting for stack create/update to complete
+
+CloudFormation events from stack operations (refresh every 5.0 seconds)
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+ResourceStatus                         ResourceType                           LogicalResourceId                      ResourceStatusReason                 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE_IN_PROGRESS                     AWS::CloudFormation::Stack             serverless-application                 User Initiated                       
+CREATE_IN_PROGRESS                     AWS::IAM::Role                         HelloWorldFunctionRole                 -                                    
+CREATE_IN_PROGRESS                     AWS::IAM::Role                         HelloWorldFunctionRole                 Resource creation Initiated          
+CREATE_COMPLETE                        AWS::IAM::Role                         HelloWorldFunctionRole                 -                                    
+CREATE_IN_PROGRESS                     AWS::Lambda::Function                  HelloWorldFunction                     -                                    
+CREATE_IN_PROGRESS                     AWS::Lambda::Function                  HelloWorldFunction                     Resource creation Initiated          
+CREATE_COMPLETE                        AWS::Lambda::Function                  HelloWorldFunction                     -                                    
+CREATE_IN_PROGRESS                     AWS::ApiGateway::RestApi               ServerlessRestApi                      -                                    
+CREATE_IN_PROGRESS                     AWS::ApiGateway::RestApi               ServerlessRestApi                      Resource creation Initiated          
+CREATE_COMPLETE                        AWS::ApiGateway::RestApi               ServerlessRestApi                      -                                    
+CREATE_IN_PROGRESS                     AWS::ApiGateway::Deployment            ServerlessRestApiDeployment47fc2d5f9   -                                    
+                                                                              d                                                                           
+CREATE_IN_PROGRESS                     AWS::Lambda::Permission                HelloWorldFunctionHelloWorldPermissi   -                                    
+                                                                              onProd                                                                      
+CREATE_IN_PROGRESS                     AWS::Lambda::Permission                HelloWorldFunctionHelloWorldPermissi   Resource creation Initiated          
+                                                                              onProd                                                                      
+CREATE_COMPLETE                        AWS::Lambda::Permission                HelloWorldFunctionHelloWorldPermissi   -                                    
+                                                                              onProd                                                                      
+CREATE_IN_PROGRESS                     AWS::ApiGateway::Deployment            ServerlessRestApiDeployment47fc2d5f9   Resource creation Initiated          
+                                                                              d                                                                           
+CREATE_COMPLETE                        AWS::ApiGateway::Deployment            ServerlessRestApiDeployment47fc2d5f9   -                                    
+                                                                              d                                                                           
+CREATE_IN_PROGRESS                     AWS::ApiGateway::Stage                 ServerlessRestApiProdStage             -                                    
+CREATE_IN_PROGRESS                     AWS::ApiGateway::Stage                 ServerlessRestApiProdStage             Resource creation Initiated          
+CREATE_COMPLETE                        AWS::ApiGateway::Stage                 ServerlessRestApiProdStage             -                                    
+CREATE_COMPLETE                        AWS::CloudFormation::Stack             serverless-application                 -                                    
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Successfully created/updated stack - serverless-application in us-east-1
+
+schumbar@Shawns-MacBook-Pro-2 server-application % 
